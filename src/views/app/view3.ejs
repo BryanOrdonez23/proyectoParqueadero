@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Display navigation directions</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            left: 100%;
+            
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+
+        }
+
+        #ventanaMap {
+
+            
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-light bg-primary border-3 border-bottom border-primary" >
+        <div class="container-fluid">
+            <a class="navbar-brand text-light fw-bold m-lg-2" href="#"><i
+                    class="bi bi-person-fill m-lg-2"></i>Bienvenido:
+                <%=persona.nombre%>
+                    <%= persona.apellido%>
+            </a>
+            <tr></tr>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-light m-lg-2 bi bi-person-plus" href="administrador/registroadmin">
+                            Registrar
+                            Administradores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light m-lg-2 bi bi-x-lg" href="/administrador/logout"> Cerrar
+                            Sesi&oacute;n
+                            </span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <script
+        src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+    <link rel="stylesheet"
+        href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
+        type="text/css">
+    <div class="card w-100 d-inline-block" >
+        <div   >
+
+            <div class="card  " style="height: 400px;" >
+                <div>
+
+                </div>
+                <h2 ventanaMap>SOLICITUDES DE RESERVA</h2>
+
+                <div id="map"></div>
+
+
+            </div>
+            <div class="   ">
+                <div class="  w-100  p-3" >
+                    <div class="progress ">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated " role="progressbar"
+                            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"  >Tiempo de espera</div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoicGF0cmljaW9wYXJlZGVzIiwiYSI6ImNsMzd6bjlmdDBkaXEzZHEzeWowcjk5YXIifQ.WYVipj4sOnuBOkZbKaSEGw';
+        const map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [-79.4512, 43.6568],
+            zoom: 13
+        });
+
+        map.addControl(
+            new MapboxDirections({
+                accessToken: mapboxgl.accessToken
+            }),
+            'top-left'
+        );
+    </script>
+
+
+
+
+</body>
+
+</html>

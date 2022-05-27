@@ -1,2 +1,2 @@
-# proyectoParqueadero
-Proyecto Parqueadero en la empresa AC solves
+# SistemaGestionSoporteTecnico-DBP
+Proyecto final de la asignatura de Desarrollo Basado en Plataformas.
