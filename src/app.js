@@ -158,6 +158,23 @@ app.use("/app", session_middlewares);
 app.use("/administrador", admin_middlewares);
 app.use("/app", rutasl);
 app.use("/administrador", rutasl);
+
+app.get('/tiempoEspera', function (req, res) {
+  res.render("app/tiempoEspera");
+});
+app.get('/view7', function (req, res) {
+  res.render("app/view7");
+});
+app.get('/view10', function (req, res) {
+  res.render("app/view10");
+});
+app.get('/view11', function (req, res) {
+  res.render("app/view11");
+});
+app.get('/view12', function (req, res) {
+  res.render("app/view12");
+});
+
 const dispositivo = require("./routes/dispositivoroute");
 app.use(dispositivo);
 const cuentacontroler = require("./routes/cuentarouter");
